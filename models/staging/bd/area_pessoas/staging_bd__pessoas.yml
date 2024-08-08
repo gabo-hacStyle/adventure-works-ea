@@ -1,0 +1,9 @@
+version: 2
+models:
+  - name: staging_bd__pessoas.sql
+    description: Tabela de pessoas da camada de staging.
+    columns:
+      - name: nome_completo
+        description: 'Combinacao do first and lastname do banco de dados.'
+        tests:
+          - not_null

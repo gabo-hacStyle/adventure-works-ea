@@ -1,0 +1,101 @@
+version: 2
+sources:
+  - name: bd
+    description: 'Essa é a fonte do sistema ERP da Adventure Works com dados de vendas.'
+    database: fea24_6
+    schema: RAW_ADVENTURE_WORKS
+    tables:
+      - name: product
+        description: 'Tabela com dados necesários para análises sobre os produtos.'
+        columns:
+          - name: productid
+            description: 'Chave primária da tabela de produtos.'
+            tests:
+              - unique
+              - not_null
+      - name: productsubcategory
+        description: 'Tabela que contem as subcategorias dos produtos'
+        columns:
+          - name: productsubcategoryid
+            description: 'Chave primária da tabela das subcategorias.'
+            tests:
+              - unique
+              - not_null
+      - name: productcategory
+        description: 'Tabela que contem as categorias dos produtos'
+        columns:
+          - name: PRODUCTCATEGORYID
+            description: 'Chave primária da tabela das categorias.'
+            tests:
+              - unique
+              - not_null
+      - name: salesorderheader
+        description: 'Tabela com os detalhes sobre o pedido'
+        columns:
+          - name: salesorderid
+            description: 'Chave primaria da tabela'
+            tests:
+              - not_null
+      - name: salesorderdetail
+        description: 'Tabela com informação dos pedidos por produto '
+        columns:
+          - name: salesorderdetailid
+            description: 'Chave primaria da tabela'
+            tests:
+              - not_null
+              - unique
+      - name: salesorderheadersalesreason
+        description: 'Tabela intermediaria entre salesorderheader e salesreason'
+        columns:
+          - name: salesorderid
+            tests:
+              - not_null
+      - name: salesreason
+        description: 'Tabela com os motivos de venda'
+      - name: customer
+        description: 'Tabela com informacao sobre os clientes'
+        columns:
+          - name: customerid
+            tests:
+              - not_null
+              - unique
+      - name: creditcard 
+        columns:
+          - name: creditcardid
+            tests:
+              - not_null
+              - unique
+      - name: address
+        description: 'Tabela com informacoes sobre enderecos e cidades'
+        columns:
+          - name: addressid
+            tests: 
+              - not_null
+              - unique
+      - name: stateprovince
+        description: 'Tabela com dados dos estados registrados'
+        columns:
+          - name: stateprovinceid
+            tests:
+              - not_null
+              - unique
+      - name: countryregion
+        description: 'Tabela com os paises'
+        columns:
+          - name: countryregioncode
+            tests:
+              - not_null
+              - unique 
+      - name: person
+        columns: 
+          - name: BUSINESSENTITYID
+            tests:
+              - not_null
+              - unique
+      - name: employee
+        columns:
+          - name: BUSINESSENTITYID
+            tests: 
+              - not_null
+              - unique
+      

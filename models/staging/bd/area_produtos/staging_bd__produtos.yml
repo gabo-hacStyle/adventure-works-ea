@@ -1,0 +1,9 @@
+version: 2
+models:
+  - name: staging_bd__produtos.sql
+    description: Tabela de produtos da camada de staging.
+    columns:
+      - name: eh_discontinuado
+        description: Flag que indica se o produto ainda é comercializado.
+        tests:
+          - not_null
