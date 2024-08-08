@@ -1,0 +1,8 @@
+version: 2
+models:
+  - name: staging_bd__trabalhadores.sql
+    description: Tabela de trabalhadores da camada de staging.
+    columns:
+      - name: genero
+        tests:
+          - not_null
