@@ -1,6 +1,7 @@
 with renamed as (
     select 
-        cast(BUSINESSENTITYID as int) as pk_trabalhador 
+        cast(ROWGUID as string) as rowguid
+        , cast(BUSINESSENTITYID as int) as pk_trabalhador 
         , cast(JOBTITLE as varchar) as posto_trabalho 
         , CASE
             WHEN GENDER = 'M' THEN 'Masculino'

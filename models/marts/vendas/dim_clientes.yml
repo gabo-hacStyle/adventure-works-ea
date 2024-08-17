@@ -1,0 +1,9 @@
+version: 2
+models:
+  - name: dim_clientes
+    description: Dimensão com os clientes que fizeram pedidos na empresa.
+    columns:
+      - name: sk_cliente
+        description: Chave surrogate da dimensão.
+        tests:
+          - unique
