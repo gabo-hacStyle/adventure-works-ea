@@ -1,0 +1,9 @@
+version: 2
+models:
+  - name: dim_enderecos
+    description: Dimensão com os lugares registrados nas tabelas necesarias para mart de vendas.
+    columns:
+      - name: pk_endereco
+        description: Chave primaria da dimensão.
+        tests:
+          - unique

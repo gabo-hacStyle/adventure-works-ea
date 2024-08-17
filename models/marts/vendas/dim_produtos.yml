@@ -1,0 +1,9 @@
+version: 2
+models:
+  - name: dim_produtos
+    description: Dimensão com os produtos que fazem parte dos pedidos realizados na empresa.
+    columns:
+      - name: sk_produto
+        description: Chave surrogate da dimensão.
+        tests:
+          - unique

@@ -1,0 +1,9 @@
+version: 2
+models:
+  - name: dim_vendedores
+    description: Dimensão com os trabalhadores que venderam pedidos na empresa.
+    columns:
+      - name: sk_vendedor
+        description: Chave surrogate da dimensão.
+        tests:
+          - unique

@@ -38,6 +38,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   adventure_works:
     +materialized: view
+    marts:
+      +materialized: table
+      vendas:
+        +schema: marts
+      intermediate:
+        +materialized: view
+        +schema: int 
     staging:
       +schema: stg
       +materialized: view

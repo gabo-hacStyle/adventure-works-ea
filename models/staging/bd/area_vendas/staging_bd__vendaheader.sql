@@ -8,7 +8,7 @@ with renamed as(
         , cast(ONLINEORDERFLAG as boolean) as eh_online
         , cast(CUSTOMERID as int) as fk_cliente
         , cast(SALESPERSONID as int) as fk_vendedor
-        , cast(SHIPTOADDRESSID as int) as fk_territorio
+        , cast(SHIPTOADDRESSID as int) as fk_endereco
         , cast(CREDITCARDID as int )as fk_cartao     
     from {{ source('bd', 'salesorderheader') }}
 )

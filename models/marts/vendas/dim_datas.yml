@@ -1,0 +1,9 @@
+version: 2
+models:
+  - name: dim_datas
+    description: Dimensão com as datas registradas nas tabelas necesarias para mart de vendas.
+    columns:
+      - name: pk_data
+        description: Chave primaria da dimensão.
+        tests:
+          - unique
