@@ -6,6 +6,7 @@ with renamed as  (
         , cast(PRODUCTID as int) as fk_produto
         , cast(UNITPRICE as numeric(18, 2)) as preco_unitario 
         , cast(UNITPRICEDISCOUNT as numeric(18, 2)) as disconto_unitario
+        , cast(MODIFIEDDATE as date) as data_modificacao
     from {{ source('bd', 'salesorderdetail') }}
 )
 
