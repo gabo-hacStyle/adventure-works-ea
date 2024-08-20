@@ -9,7 +9,8 @@ with renamed as(
         , cast(CUSTOMERID as int) as fk_cliente
         , cast(SALESPERSONID as int) as fk_vendedor
         , cast(SHIPTOADDRESSID as int) as fk_endereco
-        , cast(CREDITCARDID as int )as fk_cartao     
+        , cast(CREDITCARDID as int )as fk_cartao
+        , cast(MODIFIEDDATE as date) as data_modificacao     
     from {{ source('bd', 'salesorderheader') }}
 )
 

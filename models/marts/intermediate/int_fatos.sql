@@ -20,13 +20,18 @@ motivo as (
     select * from {{ ref('staging_bd__motivosvenda') }}
 ),
 
+staging_endereco_pesoa as (
+    select * from {{ ref('staging_bd__endereco_por_pessoa') }}
+),
+
 joined as (
     select 
         vendaheader.pk_venda
         , vendadetalhe.FK_PRODUTO
         , vendaheader.FK_CLIENTE
+        , vendaheader.FK_ENDERECO as fk_endereco_cliente
         , vendaheader.FK_VENDEDOR
-        , vendaheader.FK_ENDERECO
+        , ep.fk_endereco as fk_endereco_vendedor
         , TO_CHAR(vendaheader.DATA_ORDEM, 'YYYYMMDD') as fk_data_ordem
         , TO_CHAR(vendaheader.DATA_MAXIMA_ENTREGA, 'YYYYMMDD') as fk_data_maxima_entrega
         , TO_CHAR(vendaheader.DATA_ENVIO, 'YYYYMMDD') as fk_data_envio
@@ -37,11 +42,13 @@ joined as (
         , vendaheader.ESTATUS
         , vendaheader.EH_ONLINE
         , cartao.TIPO_CARTAO
+        , vendadetalhe.data_modificacao
     from vendaheader 
     left join vendadetalhe on vendaheader.pk_venda = vendadetalhe.fk_venda
     left join cartao on vendaheader.fk_cartao = cartao.pk_cartao
     left join vendaemotivo on vendaheader.pk_venda = vendaemotivo.fk_venda
     left join motivo on vendaemotivo.fk_motivo = motivo.pk_motivo
+    left join staging_endereco_pesoa ep on vendaheader.fk_vendedor = ep.fk_pessoa
 ),
 
 metricas as (
