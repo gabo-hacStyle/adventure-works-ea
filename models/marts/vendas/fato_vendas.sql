@@ -27,9 +27,20 @@ with
             qtde_produto_por_pedido,
             preco_unitario,
             disconto_unitario,
-            motivo,
             valor_negociado,
             valor_negociado_liquido,
+            case 
+                when motivo is null
+                then 'Sem motivo'
+                else motivo
+                end as motivo    
+            ,
+            case 
+                when tipo_cartao is null
+                then 'Sem cartão'
+                else tipo_cartao
+                end as tipo_cartao
+            ,
             nome_produto,
             codigo_produto,
             costo_producao,
