@@ -1,0 +1,11 @@
+version: 2
+models:
+  - name: dim_motivosvenda
+    description: Dimensão que contem a informação dos motivos de cada venda.
+    columns:
+      - name: sk_motivosvenda
+        description: Chave primaria da dimensão.
+        tests:
+          - unique
+          - not_null
+          

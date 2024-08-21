@@ -11,14 +11,7 @@ cartao as (
         *
     from {{ ref('staging_bd__cartoes') }} 
 ),
-vendaemotivo as (
-    select 
-        *
-    from {{ ref('staging_bd__vendas_com_motivos') }} 
-),
-motivo as (
-    select * from {{ ref('staging_bd__motivosvenda') }}
-),
+
 
 staging_endereco_pesoa as (
     select * from {{ ref('staging_bd__endereco_por_pessoa') }}
@@ -46,8 +39,6 @@ joined as (
     from vendaheader 
     left join vendadetalhe on vendaheader.pk_venda = vendadetalhe.fk_venda
     left join cartao on vendaheader.fk_cartao = cartao.pk_cartao
-    left join vendaemotivo on vendaheader.pk_venda = vendaemotivo.fk_venda
-    left join motivo on vendaemotivo.fk_motivo = motivo.pk_motivo
     left join staging_endereco_pesoa ep on vendaheader.fk_vendedor = ep.fk_pessoa
 ),
 
