@@ -1,9 +1,15 @@
 version: 2
 models:
   - name: dim_clientes
-    description: Dimensão com os clientes que fizeram pedidos na empresa.
+    description: Dimensão com os clientes da empresa.
     columns:
       - name: sk_cliente
         description: Chave surrogate da dimensão.
         tests:
           - unique
+      - name:   PK_CLIENTE
+        description: Chave primaria de cada cliente, com alguns registros duplicados. 
+      - name: NOME_COMPLETO
+        description: Nome do cliente, nome e sobrenome junto
+      - name: DATA_MODIFICACAO
+        description: Coluna que registra datas em que se fazem mudanças aos registros

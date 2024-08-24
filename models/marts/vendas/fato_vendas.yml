@@ -8,4 +8,58 @@ models:
         tests:
           - not_null
           - unique
+      - name: NOTA_FISCAL
+        description: A nota fiscal ou pk dos pedidos
+      - name: FK_MOTIVO
+        description: Chave foranea para registros únicos da dimensão de dim_motivosvenda
+      - name: FK_PRODUTO
+        description: Chave foranea do produto
+      - name: FK_CLIENTE
+        description: Chave foranea do cliente
+      - name: FK_ENDERECO_CLIENTE
+        description: Chave foranea com o endereço do cliente
+      - name: FK_VENDEDOR
+        description: chave foranea do vendedor
+      - name: FK_ENDERECO_VENDEDOR
+        description: Chave foranea com o endereço do vendedor
+      - name: FK_DATA_ORDEM
+        description: Chave foranea da data quando a ordem foi efetuada
+      - name: FK_DATA_MAXIMA_ENTREGA
+        description: Chave foranea da data maxima definida para entregar o pedido
+      - name: FK_DATA_ENVIO
+        description: Chave foranea da data em que o envio foi realizado
+      - name: QTDE_PRODUTO_POR_PEDIDO
+        description: Quantidade de items do produto comprados na venda
+      - name: PRECO_UNITARIO
+        description: O valor unitario de cada produto
+      - name: DISCONTO_UNITARIO
+        description: Desconto aplicado na venda
+      - name: VALOR_NEGOCIADO
+        description: Valor negociado para a venda, sem o desconto
+      - name: VALOR_NEGOCIADO_LIQUIDO
+        description: Valor negociado para a venda com o desconto
+      - name: DATA_ORDEM  
+        description: Data da ordem no formato correto de date
+      - name: MOTIVO
+        description: Motivo da venda
+      - name: TIPO_CARTAO
+        description: Cartão usado para pagar a venda
+      - name: NOME_PRODUTO
+        description: O nome do produto
+      - name: CODIGO_PRODUTO
+        description: O código do produto
+      - name: COSTO_PRODUCAO
+        description: Costo da produção do produto da venda
+      - name: NOME_SUBCATEGORIA
+        description: Subategoria do pedido
+      - name: NOME_CATEGORIA
+        description: Categoria do pedido
+      - name: NOME_COMPLETO_CLIENTE
+        description: Nome do cliente
+      - name: NOME_COMPLETO_VENDEDOR
+        description: Nome do vendedor
+      - name: POSTO_TRABALHO_VENDEDOR
+        description: Ocupação do vendedor
+      - name: GENERO_VENDEDOR
+        description: Género do vendedors
         

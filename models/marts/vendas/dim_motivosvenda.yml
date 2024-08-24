@@ -8,4 +8,9 @@ models:
         tests:
           - unique
           - not_null
-          
+      - name: FK_VENDA
+        description: Chave foranea da venda que pertence
+      - name: PK_MOTIVO
+        description: Chave do motivo que representa
+      - name: MOTIVO
+        description: Nome do motivo

@@ -7,3 +7,11 @@ models:
         description: Chave primaria da dimensão.
         tests:
           - unique
+      - name: endereco
+        description: endereco registrado, só a primeira parte do endereço
+      - name: cidade
+        description: Cidade do endereço
+      - name: estado
+        description: Estado da cidade
+      - name: pais
+        description: Pais do estado

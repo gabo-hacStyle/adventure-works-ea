@@ -1,3 +1,6 @@
+-- Juntamos todos os registros posibles que contem datas para sacar uma 
+-- dimensão de datas
+
 with vendaheaderdates as (
     select data_ordem as combineddate from {{ ref('staging_bd__vendaheader') }}
     union

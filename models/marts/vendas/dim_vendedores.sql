@@ -1,3 +1,5 @@
+-- dimensão dos vendedores que tem efetuado vendas
+-- na empresa
 with vendedores as (
     select 
         *

@@ -4,6 +4,7 @@ with clientes as (
     from {{ ref('staging_bd__clientes') }}
 ),
 
+-- Tabela para encontrar os nomes dos clientes
 pessoas as (
     select 
         *
