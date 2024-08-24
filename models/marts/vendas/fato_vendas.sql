@@ -9,12 +9,16 @@ with
 
     dim_enderecos as (select * from {{ ref("dim_enderecos") }}),
 
+    dim_motivosvenda as (select * from {{ ref("dim_motivosvenda") }}),
+
     staging_vendedores as (select * from {{ ref("staging_bd__trabalhadores") }}),
 
     joined as (
         select
-            sk_vendas,
             pk_venda as nota_fiscal,
+            case 
+                when sk_motivosvenda is null then '0' else sk_motivosvenda
+                end as fk_motivo,
             fk_produto,
             fk_cliente,
             fk_endereco_cliente,
@@ -29,18 +33,11 @@ with
             disconto_unitario,
             valor_negociado,
             valor_negociado_liquido,
-            case 
-                when motivo is null
-                then 'Sem motivo'
-                else motivo
-                end as motivo    
-            ,
-            case 
-                when tipo_cartao is null
-                then 'Sem cartão'
-                else tipo_cartao
-                end as tipo_cartao
-            ,
+            dt_or.data as data_ordem,
+            case when fk_motivo = '0' then 'Sem motivo' else dim_motivosvenda.motivo end as motivo,
+            case
+                when tipo_cartao is null then 'Sem cartão' else tipo_cartao
+            end as tipo_cartao,
             nome_produto,
             codigo_produto,
             costo_producao,
@@ -60,10 +57,17 @@ with
         left join dim_clientes on int_vendas.fk_cliente = dim_clientes.pk_cliente
         left join
             dim_vendedores on int_vendas.fk_vendedor = dim_vendedores.pk_trabalhador
+        left join dim_motivosvenda on nota_fiscal = dim_motivosvenda.fk_venda
         left join
             staging_vendedores
             on int_vendas.fk_vendedor = staging_vendedores.pk_trabalhador
+        left join dim_datas dt_or on fk_data_ordem = dt_or.pk_data
+    ),
+    chave_primaria as (
+        select
+            md5(nota_fiscal || fk_motivo || fk_produto) as sk_vendas
+            , *
+        from joined
     )
-
 select *
-from joined
+from chave_primaria
