@@ -1,3 +1,5 @@
+-- Dimensão com os produtos (pode ser reusada na mart de produção ex.)
+-- Suas categorias e subcategorias
 with produtos  as (
     select 
         *

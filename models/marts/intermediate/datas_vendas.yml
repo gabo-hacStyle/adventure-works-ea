@@ -1,7 +1,7 @@
 version: 2
 models:
   - name: datas_vendas
-    description: Tabela intermediaria com as datas registradas nas vendas.
+    description: Vista intermediaria com as datas registradas nas vendas para tirar uma dimensão unica de datas.
     columns:
       - name: combineddate
         description: Todas as datas, sem duplicado.

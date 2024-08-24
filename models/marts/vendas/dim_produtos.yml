@@ -7,3 +7,21 @@ models:
         description: Chave surrogate da dimensão.
         tests:
           - unique
+      - name: PK_PRODUTO
+        description: Chave primaria do produto, poder ter duplicadas, usado como fk na tabela fatos
+      - name: NOME_PRODUTO
+        description: O nome do produto
+      - name: CODIGO_PRODUTO
+        description: O código do produto
+      - name: COSTO_PRODUCAO
+        description: Valor do costo da produção do produto
+      - name: NOME_SUBCATEGORIA
+        description: A subcategoria na qual pertence o produto
+      - name: NOME_CATEGORIA
+        description: A categoria na qual pertence o produto
+      - name: DATA_INICIO_VENDA
+        description: Data quando o produto começo a ser vendido
+      - name: DATA_FINAL_VENDA
+        description: Coluna que identifica se o produto é discontinuado
+      - name: DATA_MODIFICACAO
+        description: Coluna que registra datas em que se fazem mudanças aos registros  

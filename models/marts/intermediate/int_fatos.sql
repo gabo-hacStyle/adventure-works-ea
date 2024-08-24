@@ -1,3 +1,6 @@
+-- Trazemos informação sobre as tabelas de vendas
+-- cartões e endereços
+
 with vendaheader as (
     select * from {{ ref('staging_bd__vendaheader') }}
 ),
@@ -13,6 +16,9 @@ cartao as (
 ),
 
 
+-- Trazemos a tabela da source que contem todos os endereços das pessõas
+-- para definir a chave foranea de endereço para os vendedores à ser usada na fato
+  
 staging_endereco_pesoa as (
     select * from {{ ref('staging_bd__endereco_por_pessoa') }}
 ),
@@ -40,6 +46,8 @@ joined as (
     left join cartao on vendaheader.fk_cartao = cartao.pk_cartao
     left join staging_endereco_pesoa ep on vendaheader.fk_vendedor = ep.fk_pessoa
 ),
+
+-- Adicionamos as métricas
 
 metricas as (
     select 

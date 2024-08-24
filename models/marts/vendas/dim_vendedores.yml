@@ -7,3 +7,13 @@ models:
         description: Chave surrogate da dimensão.
         tests:
           - unique
+      - name: PK_TRABALHADOR
+        description: Chave primaria do trabalhador, pode ter registros duplicados
+      - name: NOME_COMPLETO
+        description: Nome do vendedor, nome e sobrenome juntos
+      - name: POSTO_TRABALHO
+        description: Cargo do vendedor
+      - name: GENERO
+        description: Genero do vendedor
+      - name: DATA_MODIFICACAO
+        description: Coluna que registra datas em que se fazem mudanças aos registros

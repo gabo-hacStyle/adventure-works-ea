@@ -4,6 +4,8 @@ models:
     description: Dimensão com as datas registradas nas tabelas necesarias para mart de vendas.
     columns:
       - name: pk_data
-        description: Chave primaria da dimensão.
+        description: Chave primaria da dimensão (tipo string).
         tests:
           - unique
+      - name: data
+        description: Data no formato correto de datesa
