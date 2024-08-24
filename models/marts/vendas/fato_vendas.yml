@@ -6,4 +6,6 @@ models:
       - name: sk_vendas
         description: Chave primária da tabela fato vendas.
         tests:
-          - not_null                  
+          - not_null
+          - unique
+        

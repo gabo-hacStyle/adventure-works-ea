@@ -31,7 +31,6 @@ joined as (
         , vendadetalhe.QTDE_PRODUTO_POR_PEDIDO
         , vendadetalhe.PRECO_UNITARIO
         , vendadetalhe.DISCONTO_UNITARIO
-        , motivo.MOTIVO
         , vendaheader.ESTATUS
         , vendaheader.EH_ONLINE
         , cartao.TIPO_CARTAO
@@ -48,13 +47,7 @@ metricas as (
         , preco_unitario * qtde_produto_por_pedido as valor_negociado
         , preco_unitario * qtde_produto_por_pedido - (1-disconto_unitario) as valor_negociado_liquido
     from joined
-), 
-chave_primaria as (
-    select 
-        md5(pk_venda || fk_produto) as sk_vendas
-        , *
-    from metricas
 )
 
-select * from chave_primaria
+select * from metricas
 
